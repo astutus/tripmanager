@@ -1,5 +1,6 @@
 package pl.edu.agh.mwo;
 
+import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -64,5 +65,17 @@ public class TripTest {
 
 	}
 	
-	
+	@Test
+	@DisplayName("loadPhotosWorking")
+	public void loadWorking() {
+		assumeTrue("PRODUCTION".equals(System.getenv("ENV")));
+		try {
+			trip.addPhoto(imagePath);
+		}
+		catch (TheSameImageException e) {
+			e.printStackTrace();
+		}
+		assertNotNull(trip.getPhotos().get(0));
+	}
+
 }

@@ -1,11 +1,13 @@
 package pl.edu.agh.mwo;
 
+import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.image.BufferedImage;
 
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -76,5 +78,5 @@ class PhotoTest {
 	void testExceptionIfNotJpg() {
 		Assertions.assertThrows(NotJpgException.class, () -> {photo.loadImage(notImage);});
 	}
-
+	
 }
