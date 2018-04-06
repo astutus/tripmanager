@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class TripTest {
 	Trip trip;
@@ -15,7 +16,6 @@ public class TripTest {
 	@BeforeEach
 	public void prepare() {
 		trip=new Trip("Majorka", "to jest bardzo fajna wycieczka");
-		photo1=new Photo(imagePath);
 	}
 	
 	@Test
@@ -25,7 +25,7 @@ public class TripTest {
 					assertNotNull(trip.getName());
 				},
 				() -> {
-					assertTrue(trip.addPhoto(photo1));
+					assertTrue(trip.addPhoto(imagePath));
 				}
 		);
 	}
