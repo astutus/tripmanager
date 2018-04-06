@@ -1,9 +1,14 @@
 package pl.edu.agh.mwo;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.awt.image.BufferedImage;
+
 import static java.time.Duration.ofMillis;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -46,5 +51,18 @@ public class TripTest {
 			
 	);
 	}
+	
+	// add the same photo
+	@Test
+	@DisplayName("toSamoZdjecie")
+	// sprawdzanie zmiany zdjecia wczytywania
+	void theSamePhoto() throws NotJpgException, TheSameImageException {
+				trip.addPhoto(imagePath);
+				assertThrows(TheSameImageException.class, () -> {
+					trip.addPhoto(imagePath);
+				});
+
+	}
+	
 	
 }
