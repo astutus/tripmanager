@@ -8,8 +8,10 @@ import java.awt.image.BufferedImage;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("testyPhoto")
 class PhotoTest {
 
 	// skladowe
@@ -31,8 +33,9 @@ class PhotoTest {
 	}
 
 	@Test
+	@DisplayName("zmianaZdjecia")
 	// sprawdzanie zmiany zdjecia wczytywania
-	void testoadPhoto() throws NotJpgException {
+	void testLoadPhoto() throws NotJpgException {
 		boolean theSame = true;
 		BufferedImage image1 = photo.getImage();
 		photo.loadImage(imagePath2);
@@ -58,15 +61,19 @@ class PhotoTest {
 		assertFalse(theSame);
 	}
 	
+	// sprawdzanie ustawiania komentarza
 	@Test
+	@DisplayName("ustawianieKomentarza")
 	void testSetComment() {
 		String comment="to jest bardzo fajny obrazek";
 		photo.setComment(comment);
 		assertEquals(photo.getComment(), comment);
 	}
 	
+	// sprawdzanie, czy rzuca exception, jak nie mamy jpg
 	@Test 
-	void testRejectsNotJpg() {
+	@DisplayName("czyToJpg")
+	void testExceptionIfNotJpg() {
 		Assertions.assertThrows(NotJpgException.class, () -> {photo.loadImage(notImage);});
 	}
 

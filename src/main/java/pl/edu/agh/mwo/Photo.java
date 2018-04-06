@@ -53,7 +53,8 @@ class Photo {
 		try (RandomAccessFile raf = new RandomAccessFile(file, "r")) {
 			// sprawdzanie kodu, powinno byc: 0x ff d8
 			/*
-			 * hexdump -C ./success.jpg | head 00000000 ff d8 ff e0 00 10 4a 46 49 46 00 01
+			 * hexdump -C ./success.jpg | head 
+			 * 00000000 ff d8 ff e0 00 10 4a 46 49 46 00 01
 			 * 01 00 00 01 |......JFIF......|
 			 */
 			byte[] buffer = new byte[2];
@@ -62,7 +63,6 @@ class Photo {
 			String hex_first = Integer.toHexString(first);
 			int second = buffer[1] & 0xff;
 			String hex_second = Integer.toHexString(second);
-			System.out.println(">> " + hex_first);
 			if (hex_first.equals("ff") && hex_second.equals("d8")) {
 				isFormatOk = true;
 			}
