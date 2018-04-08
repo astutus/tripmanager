@@ -1,4 +1,6 @@
 language: java
+env: 
+  - ENV=PRODUCTION
 sudo: false # faster builds
 
 script: "mvn cobertura:cobertura"
