@@ -45,7 +45,7 @@ public class TripTest {
 	@DisplayName("loadingSpeed")
 	public void checkSpeed() {
 		assertTimeout(
-				ofMillis(200), () -> {
+				ofMillis(500), () -> {
 					trip.addPhoto(imagePath2);
 				},
 				"too slow"
