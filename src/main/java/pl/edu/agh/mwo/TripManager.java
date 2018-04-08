@@ -2,6 +2,7 @@ package pl.edu.agh.mwo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class TripManager {
 
@@ -31,8 +32,9 @@ public class TripManager {
 
 	public Trip findTrip(String toFind) {
 		Trip founded = null;
+		
 		for (Trip trip : trips) {
-			if (trip.getName().equals(toFind)) {
+			if (Pattern.compile(Pattern.quote(toFind), Pattern.CASE_INSENSITIVE).matcher(trip.getName()).find()) {
 				founded = trip;
 			}
 		}
