@@ -16,10 +16,15 @@ public class TripManagerTest {
 		trip2=new Trip("Egipt", "niebezpieczna wycieczka");
 		tripManager=new TripManager();
 	}
+
+	// w celach nauki hamcrest (bez importow statycznych)
 	
 	@Test
 	@DisplayName("dodawanieTripa")
-	public void testAddTrip(Trip trip) {
+	public void testAddTrip() {
 		tripManager.addTrip(trip1);
+		org.hamcrest.MatcherAssert.assertThat(tripManager.getTrips(), org.hamcrest.Matchers.hasItem(trip1));
 	}
+	
+	
 }

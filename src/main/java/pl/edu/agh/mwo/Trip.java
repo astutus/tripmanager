@@ -83,6 +83,18 @@ public class Trip {
 
 		}
 
-	} 
+	}
+	
+	@Override
+	public boolean equals(Object object) {
+		Trip t=(Trip)object;
+		if (this.getName() == t.getName() && this.getDescription() == t.getDescription()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 
 }
