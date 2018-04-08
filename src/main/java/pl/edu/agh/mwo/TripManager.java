@@ -18,8 +18,19 @@ public class TripManager {
 	}
 
 
-	public void addTrip(Trip trip1) {
+	public void addTrip(Trip trip1) throws AddExistingTripException {
+		for (Trip trip: trips) {
+			if (trip == trip1) {
+				throw new AddExistingTripException();
+			}
+		}
 		trips.add(trip1);		
+	}
+
+
+	public void removeTrip(Trip trip1) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

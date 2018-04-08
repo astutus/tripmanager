@@ -22,7 +22,12 @@ public class TripManagerTest {
 	@Test
 	@DisplayName("dodawanieTripa")
 	public void testAddTrip() {
-		tripManager.addTrip(trip1);
+		try {
+			tripManager.addTrip(trip1);
+		}
+		catch (AddExistingTripException ex) {
+			ex.printStackTrace();
+		}
 		org.hamcrest.MatcherAssert.assertThat(tripManager.getTrips(), org.hamcrest.Matchers.hasItem(trip1));
 	}
 
@@ -30,7 +35,12 @@ public class TripManagerTest {
 	@Test
 	@DisplayName("odrzucaDodaniaTegoSamego")
 	public void testAddTheSame() {
-		tripManager.addTrip(trip1);
+		try {
+			tripManager.addTrip(trip1);
+		}
+		catch (AddExistingTripException ex) {
+			ex.printStackTrace();
+		}
 		Throwable exception = org.junit.jupiter.api.Assertions.assertThrows(AddExistingTripException.class, () -> {
 			tripManager.addTrip(trip1);
 		});
