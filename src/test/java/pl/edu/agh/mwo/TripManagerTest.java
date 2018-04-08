@@ -62,4 +62,9 @@ public class TripManagerTest {
 		Trip founded=tripManager.findTrip(toFind);
 		assertTrue(founded.equals(trip1));
 	}
+	
+	@Test
+	public void findPartialTripName() {
+		
+	}
 }
