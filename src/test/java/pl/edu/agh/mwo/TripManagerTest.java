@@ -64,7 +64,17 @@ public class TripManagerTest {
 	}
 	
 	@Test
+	@DisplayName("szukanieNiepelnejNazwy")
 	public void findPartialTripName() {
-		
+		try {
+			tripManager.addTrip(trip1);
+			tripManager.addTrip(trip2);
+		}
+		catch (AddExistingTripException ex) {
+			ex.printStackTrace();
+		}
+		String toFind="turc";
+		Trip founded=tripManager.findTrip(toFind);
+		assertTrue(founded.equals(trip1));
 	}
 }
