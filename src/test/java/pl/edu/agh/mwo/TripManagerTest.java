@@ -1,5 +1,7 @@
 package pl.edu.agh.mwo;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -44,5 +46,20 @@ public class TripManagerTest {
 		Throwable exception = org.junit.jupiter.api.Assertions.assertThrows(AddExistingTripException.class, () -> {
 			tripManager.addTrip(trip1);
 		});
+	}
+	
+	// find trip
+	@Test
+	public void findTrip() {
+		try {
+			tripManager.addTrip(trip1);
+			tripManager.addTrip(trip2);
+		}
+		catch (AddExistingTripException ex) {
+			ex.printStackTrace();
+		}
+		String toFind="Turcja";
+		Trip founded=tripManager.findTrip(toFind);
+		assertTrue(founded.equals(trip1));
 	}
 }

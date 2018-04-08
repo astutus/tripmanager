@@ -33,4 +33,10 @@ public class TripManager {
 		
 	}
 
+
+	public Trip findTrip(String toFind) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
