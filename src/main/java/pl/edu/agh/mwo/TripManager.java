@@ -8,7 +8,7 @@ public class TripManager {
 	List<Trip> trips=new ArrayList<Trip>();
 	
 	
-	public List<Trip> getTrips() {
+	protected List<Trip> getTrips() {
 		return trips;
 	}
 
@@ -18,7 +18,7 @@ public class TripManager {
 	}
 
 
-	public void addTrip(Trip trip1) throws AddExistingTripException {
+	protected void addTrip(Trip trip1) throws AddExistingTripException {
 		for (Trip trip: trips) {
 			if (trip == trip1) {
 				throw new AddExistingTripException();
@@ -28,8 +28,8 @@ public class TripManager {
 	}
 
 
-	public void removeTrip(Trip trip1) {
-		// TODO Auto-generated method stub
+	protected void removeTrip(Trip trip1) {
+		trips.remove(trip1);
 		
 	}
 

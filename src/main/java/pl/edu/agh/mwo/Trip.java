@@ -34,7 +34,7 @@ public class Trip {
 		this.description = description;
 	}
 
-	public List<Photo> getPhotos() {
+	protected List<Photo> getPhotos() {
 		return photos;
 	}
 
@@ -43,7 +43,7 @@ public class Trip {
 	}
 
 
-	public boolean addPhoto(String filePath) throws TheSameImageException {
+	protected boolean addPhoto(String filePath) throws TheSameImageException {
 		boolean isItOk=false;
 		try {
 			Photo photo=new Photo(filePath);
